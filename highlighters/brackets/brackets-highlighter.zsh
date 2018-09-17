@@ -55,13 +55,13 @@ _zsh_highlight_highlighter_brackets_paint()
     char=$BUFFER[pos]
     case $char in
       ["([{"])
-        if (( pos == 0 )) || [ $BUFFER[pos-1] != "\\" ]; then
+        if (( pos == 0 )) || [[ $BUFFER[pos-1] != "\\" ]]; then
             levelpos[$pos]=$((++level))
             lastoflevel[$level]=$pos
         fi
         ;;
       [")]}"])
-        if (( pos == 0 )) || [ $BUFFER[pos-1] != "\\" ]; then
+        if (( pos == 0 )) || [[ $BUFFER[pos-1] != "\\" ]]; then
           if (( level > 0 )); then
             matchingpos=$lastoflevel[$level]
             levelpos[$pos]=$((level--))
